@@ -1,0 +1,52 @@
+<div class="container">
+
+<div>
+    <h4>Checkout Information :</h4>
+</div>
+
+<form (ngSubmit)="onSubmit()" #checkoutForm="ngForm">
+    <div class="form-group container">
+    <div>
+      <input type="text" id="firstname" name="firstname" class="form-control" required [(ngModel)]="customer.firstname" placeholder="First Name">
+      
+    </div>
+
+    <div>
+        <input type="text" id="lastname" name="lastname" class="form-control" required [(ngModel)]="customer.lastname" placeholder="Last Name">
+       
+      </div>
+    
+    <div>
+      <input type="email" id="email" name="email" class="form-control" required [(ngModel)]="customer.email" placeholder="Email">
+
+      <div *ngIf="checkoutForm.controls['email'].errors && (checkoutForm.controls['email'].dirty || checkoutForm.controls['email'].touched)">
+      
+      </div>
+    </div>
+    
+    <div>
+        <label for="country">Country : </label>
+      <select id="country" name="country" class="form-control" required [(ngModel)]="customer.country" >
+        <option *ngFor="let country of countries" [value]="country" >{{ country }}</option>
+      </select>
+    </div>
+
+    <div>
+        <input type="text" id="address" name="address" class="form-control" [required]="customer.country !== 'USA'" [(ngModel)]="customer.address" placeholder="Address">
+      </div>
+    
+    <div>
+      <input type="text" id="state" name="state" class="form-control" [required]="customer.country !== 'USA'" [(ngModel)]="customer.state" placeholder="State">
+    </div>
+    
+    <div style="margin-left: 20px;" >
+      <input type="checkbox" id="terms" name="terms" class="form-check-input" required [(ngModel)]="customer.acceptTerms">
+      <label for="terms" style="margin-top: 4px;">I accept the terms and conditions</label>
+    </div>
+  
+    
+    <button routerLink="/success" (click)="onSubmit()" [disabled]="!checkoutForm.valid" class="btn " style="background-color: rgb(61, 43, 79);color: aliceblue;">Submit</button>
+</div>
+  </form>
+  
+</div>

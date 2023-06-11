@@ -1,0 +1,18 @@
+<header>
+    <div class="navbar navbar-expand-lg navbar-dark justify-content-center d-flex " style="background-color: rgb(254, 254, 254);">
+        <div class="navbar-brand align-item-center d-flex " >
+            <h3>Dua's Shop</h3>
+            <div class="form-group">
+                <input type="search" class="form-control mr-sm-2" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="Search Products...">
+            </div>
+
+            <div routerLink="cart" class="cart-button">
+                <button class="btn my-2 my-sm-0">
+                    <i style="font-size:25px; color: rgb(61, 43, 79);" class="fa">&#xf07a;</i>
+                    <div class="badge bg-danger">{{totalItems}}</div>
+                </button>
+            </div>
+
+        </div>
+    </div>
+</header>

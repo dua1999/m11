@@ -1,0 +1,13 @@
+.container {
+  margin-top: 50px;
+  text-align: center;
+}
+.checkmark {
+  font-size: 100px;
+  color: #28a745;
+  margin-bottom: 30px;
+}
+.message {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
